@@ -1,0 +1,36 @@
+{
+  "id": "shadowdark-melee-automation",
+  "title": "Shadowdark Melee Automation",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "relationships": {
+    "requires": [
+      {
+        "id": "lib-wrapper",
+        "type": "module",
+        "compatibility": {}
+      }
+    ],
+    "systems": [
+      {
+        "id": "shadowdark",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/attack-module.mjs"
+  ],
+  "authors": [
+    {
+      "name": "Accerak",
+      "flags": {}
+    }
+  ],
+  "manifest": "",
+  "download": ""
+}

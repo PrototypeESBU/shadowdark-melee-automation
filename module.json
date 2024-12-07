@@ -1,7 +1,7 @@
 {
   "id": "shadowdark-melee-automation",
   "title": "Shadowdark Melee Automation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": {
     "minimum": "12",
     "verified": "12"
@@ -31,6 +31,6 @@
       "flags": {}
     }
   ],
-  "manifest": "",
-  "download": ""
+  "manifest": "https://github.com/accerak/shadowdark-melee-automation/releases/download/1.0.1/module.json",
+  "download": "https://github.com/accerak/shadowdark-melee-automation/releases/download/1.0.1/sd-melee-automation-release.zip"
 }

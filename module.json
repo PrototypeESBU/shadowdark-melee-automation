@@ -25,6 +25,9 @@
   "esmodules": [
     "scripts/attack-module.mjs"
   ],
+  "styles": [
+    "styles/attack-module.css"
+  ],
   "authors": [
     {
       "name": "Accerak",

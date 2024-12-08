@@ -1,0 +1,27 @@
+.attack-module-card {
+    font-family: 'Old Newspaper Font'; 
+    font-size: 20px; 
+    margin: 0;
+    border: 1px solid black; 
+    border-radius: 8px; 
+    background-color: black; 
+    padding: 10px; 
+    color: white;
+}
+
+.apply-damage-buttons {
+    display: flex; justify-content: space-between; gap: 10px;
+}
+
+.apply-damage-buttons button {
+    font-size: .8em; 
+    border: 2px solid black; 
+    color: solid black; 
+    padding: 5px 8px; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+

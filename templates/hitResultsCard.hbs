@@ -1,8 +1,8 @@
-<div class="attack-module-card">
+<div class="shadowdark chat-card item-card">
     <span style="text-align: center;">Attack Result for {{attackWeaponName}}</span>
     <hr>
     <p>Formula: {{attackRollFormula}}</p>
-    <p>Attack Roll: <span style="font-size: 30px; color: {{#if isHit}}green{{else}}red{{/if}};">{{attackRollTotal}} {{hitText}}</span></p>               
+    	<p>Attack Roll: <span style="font-size: 20px; color: {{#if isHit}}green{{else}}red{{/if}};">{{attackRollTotal}} {{hitText}}</span></p>             
     {{#if isCriticalHit}}
         <p style="font-size: 30px; color: green; margin: 0; text-align: center;"><strong>CRITICAL HIT</strong></p>
     {{/if}}
@@ -12,9 +12,10 @@
 </div>
 
 {{#if isHit}}
+	<hr>
     <p><strong>One-Handed Damage</strong></p>
-    <p><strong>Formula: {{oneHandedDiceFormula}}</p>
-    <p>Result: <span style="font-size: 30px; color: red;">{{damageOneHanded}}</span></p>
+    <p>Formula: {{oneHandedDiceFormula}}</p>
+    <p>Result: <span style="font-size: 20px; color: red;">{{damageOneHanded}}</span></p>
     <div class="apply-damage-buttons">
         <button data-action="apply-damage" data-damage="{{damageOneHanded}}">x1</button>
         <button data-action="apply-half-damage" data-damage="{{damageOneHanded}}">1/2</button>
@@ -25,8 +26,8 @@
     {{#if damageTwoHanded}}
         <hr>
         <p><strong>Two-Handed Damage</strong></p>
-        <p><strong>Formula: {{twoHandedDiceFormula}}</p>
-        <p>Result: <span style="font-size: 30px; color: red;">{{damageTwoHanded}}</span></p>
+        <p>Formula: {{twoHandedDiceFormula}}</p>
+        <p>Result: <span style="font-size: 20px; color: red;">{{damageTwoHanded}}</span></p>
         <div class="apply-damage-buttons">
             <button data-action="apply-damage" data-damage="{{damageTwoHanded}}">x1</button>
             <button data-action="apply-half-damage" data-damage="{{damageTwoHanded}}">1/2</button>

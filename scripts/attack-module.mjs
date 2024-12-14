@@ -48,12 +48,30 @@ async function onButtonClick(event) {
     const action = button.dataset.action;
     const damage = parseInt(button.dataset.damage, 10) || 0;
 
-    // Retrieve the target actor
-    const targetToken = [...game.user.targets][0];
+    // Retrieve the chat message associated with the button
+    const messageId = button.closest(".message").dataset.messageId;
+    const chatMessage = game.messages.get(messageId);
+
+    // Retrieve the stored target token ID from the flag
+    const targetTokenId = chatMessage.flags["shadowdark-melee-automation"]?.targetActorId;
+    if (!targetTokenId) {
+        ui.notifications.error("No target token found in the chat message.");
+        return;
+    }
+    console.log("SMA - targetTokenId:", targetTokenId);
+    
+    // Retrieve the target token using its ID from the canvas
+    const targetToken = canvas.tokens.placeables.find(t => t.id === targetTokenId);
+    if (!targetToken) {
+        ui.notifications.error("No token associated with the target ID is on the canvas.");
+        return;
+    }
+
+    // Retrieve the actor from the target token
     const targetActor = targetToken.actor;
     if (!targetActor) {
-    console.warn("Shadowdark-Melee-Automation: Target actor not found.");
-    return;
+        ui.notifications.error("Target actor could not be found.");
+        return;
     }
 
     // Apply damage or healing based on the action
@@ -125,7 +143,7 @@ async function displayAttackMessage(rollResult, actor={}) {
         content: customContent,
         flags: {
             "shadowdark-melee-automation": {
-            targetActorId: targetActor.id
+            targetActorId: targetToken.id
             }
         }
     });
@@ -149,3 +167,13 @@ async function displayAttackMessage(rollResult, actor={}) {
     ui.notifications.info(`${actor.name} heals ${lastAppliedDamage} HP!`);
     lastAppliedDamage = 0;
   }
+
+  // Helper functions to get tokens
+  function getTokenForActor(targetActor) {
+    // Check all tokens on the canvas and find the one associated with the target actor
+    const token = canvas.tokens.placeables.find(t => t.actor?.id === targetActor.id);
+    if (!token) {
+        ui.notifications.warn(`No token found on the canvas for actor: ${targetActor.name}`);
+    }
+    return token;
+}
